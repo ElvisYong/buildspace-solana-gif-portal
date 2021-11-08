@@ -16,6 +16,9 @@ const TEST_GIFS = [
 
 const App = () => {
   const [walletAddress, setWalletAddress] = useState(null);
+  const [inputValue, setInputValue] = useState('');
+  const [gifList, setGifList] = useState([]);
+
   /*
    * This function holds the logic for deciding if a Phantom Wallet is
    * connected or not
@@ -63,6 +66,19 @@ const App = () => {
     }
   };
 
+  const onInputChange = (event) => {
+    const { value } = event.target;
+    setInputValue(value);
+  };
+
+  const sendGif = async () => {
+    if (inputValue.length > 0) {
+      console.log('Gif link:', inputValue);
+    } else {
+      console.log('Empty input. Try again.');
+    }
+  };
+
   const renderNotConnectedContainer = () => (
     <button
       className="cta-button connect-wallet-button"
@@ -74,8 +90,15 @@ const App = () => {
 
   const renderConnectedContainer = () => (
     <div className="connected-container">
+      <input
+        type="text"
+        placeholder="Enter gif link!"
+        value={inputValue}
+        onChange={onInputChange}
+      />
+      <button className="cta-button submit-gif-button" onClick={sendGif}>Submit</button>
       <div className="gif-grid">
-        {TEST_GIFS.map(gif => (
+        {gifList.map(gif => (
           <div className="gif-item" key={gif}>
             <img src={gif} alt={gif} />
           </div>
@@ -93,6 +116,17 @@ const App = () => {
       await checkIfWalletIsConnected();
     });
   }, []);
+
+  useEffect(() => {
+    if (walletAddress) {
+      console.log('Fetching GIF list...');
+
+      // Call Solana program here.
+
+      // Set state
+      setGifList(TEST_GIFS);
+    }
+  }, [walletAddress]);
 
   return (
     <div className="App">
