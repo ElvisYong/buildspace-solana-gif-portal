@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import twitterLogo from './assets/twitter-logo.svg';
+// import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
 
 import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
