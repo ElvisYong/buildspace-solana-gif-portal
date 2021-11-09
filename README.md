@@ -1,6 +1,15 @@
 # buildspace Solana GIF Portal Project
 
-### **Welcome 👋**
+## **Welcome 👋**
+
 Web3 project app on Solana built with React and Rust
 
-This project is a starter cloned from https://github.com/buildspace/gif-portal-starter
+Hosted on: <ayameportal.netlify.app>
+
+The solana program being deployed on devnet is: <https://github.com/ElvisYong/ayamegifsolana-program>
+
+This project is a starter cloned from <https://github.com/buildspace/gif-portal-starter>
+
+### Things to note
+
+/src/idl.json file needs to be changed here whenever the solana program is being redeployed.
