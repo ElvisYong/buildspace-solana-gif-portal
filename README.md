@@ -4,7 +4,7 @@
 
 Web3 project app on Solana built with React and Rust
 
-Hosted on: <ayameportal.netlify.app>
+Hosted on: <https://ayameportal.netlify.app>
 
 The solana program being deployed on devnet is: <https://github.com/ElvisYong/ayamegifsolana-program>
 
